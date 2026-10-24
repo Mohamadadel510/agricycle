@@ -1,0 +1,166 @@
+# AgriCycle Verified Crop Profiles (FAO-56 SRC-12, Nile Delta CWP SRC-10, Rice Kc SRC-13, MWRI Rotations SRC-11)
+crops:
+  CORN:
+    display_name: "Corn (Field Maize - Summer Season)"
+    is_paddy: false
+    default_irrigation_method: "DRIP"
+    wetted_fraction_fw:
+      DRIP: 0.35
+      FURROW: 0.80
+      SURFACE_FLOOD: 1.00
+    irrigation_efficiency:
+      DRIP: 0.90
+      FURROW: 0.65
+      SURFACE_FLOOD: 0.60
+    stage_days:
+      INI: 25
+      DEV: 40
+      MID: 45
+      END: 30
+    kc_single:
+      INI: 0.30
+      MID: 1.20
+      END: 0.35
+    kcb_basal:
+      INI: 0.15
+      MID: 1.15
+      END: 0.15
+    root_depth_m:
+      min: 0.15
+      max: 0.60  # Verified FAO-56 / ASABE root depth d = 0.60 m (SRC-12)
+    depletion_fraction_p: 0.55
+    crop_height_max_m: 2.00
+    salinity_threshold_ec_dsm: 1.70
+    heat_wave_threshold_c:
+      INI: 38.0
+      DEV: 37.0
+      MID: 36.0  # Sensitive during tasseling/silking and yield-building (SRC-30)
+      END: 39.0
+    cwp_nile_delta_kg_m3: 1.00  # Verified ARC/ICARDA Northern Nile Delta mean (SRC-10)
+
+  ONION:
+    display_name: "Onions (Dry/Bulb - Raised Bed / Drip)"
+    is_paddy: false
+    default_irrigation_method: "DRIP"
+    wetted_fraction_fw:
+      DRIP: 0.40
+      FURROW: 0.80
+      SURFACE_FLOOD: 1.00
+    irrigation_efficiency:
+      DRIP: 0.90
+      FURROW: 0.65
+      SURFACE_FLOOD: 0.60
+    stage_days:
+      INI: 20
+      DEV: 35
+      MID: 45
+      END: 25
+    kc_single:
+      INI: 0.70
+      MID: 1.05
+      END: 0.75
+    kcb_basal:
+      INI: 0.40
+      MID: 0.95
+      END: 0.65
+    root_depth_m:
+      min: 0.10
+      max: 0.40  # Shallow root zone requiring frequent refills
+    depletion_fraction_p: 0.30
+    crop_height_max_m: 0.40
+    salinity_threshold_ec_dsm: 1.20  # High salinity sensitivity
+    heat_wave_threshold_c:
+      INI: 35.0
+      DEV: 35.0
+      MID: 36.0
+      END: 38.0
+    cwp_nile_delta_kg_m3: 1.80
+
+  TOMATO:
+    display_name: "Tomatoes (Summer Orwat Yunyu - Drip / Broad-Bed Furrow)"
+    is_paddy: false
+    default_irrigation_method: "DRIP"
+    wetted_fraction_fw:
+      DRIP: 0.35
+      FURROW: 0.60  # Broad-bed furrow configuration (SRC-31)
+      SURFACE_FLOOD: 1.00
+    irrigation_efficiency:
+      DRIP: 0.90
+      FURROW: 0.70
+      SURFACE_FLOOD: 0.60
+    stage_days:
+      INI: 30
+      DEV: 40
+      MID: 45
+      END: 30
+    kc_single:
+      INI: 0.60
+      MID: 1.15
+      END: 0.70
+    kcb_basal:
+      INI: 0.15
+      MID: 1.10
+      END: 0.50
+    root_depth_m:
+      min: 0.15
+      max: 0.70
+    depletion_fraction_p: 0.40
+    crop_height_max_m: 0.60
+    salinity_threshold_ec_dsm: 2.50
+    heat_wave_threshold_c:
+      INI: 35.0  # June summer Tomato (Orwat Yunyu) most vulnerable during establishment (SRC-30)
+      DEV: 36.0
+      MID: 35.0
+      END: 38.0
+    cwp_nile_delta_kg_m3: 5.38  # Highest verified CWP in Northern Nile Delta (SRC-10)
+
+  RICE:
+    display_name: "Rice (Nile Delta Paddy / AWD under MWRI Canal Rotation)"
+    is_paddy: true
+    default_irrigation_method: "SURFACE_FLOOD"
+    wetted_fraction_fw:
+      SURFACE_FLOOD: 1.00
+    irrigation_efficiency:
+      SURFACE_FLOOD: 0.75  # Includes laser land leveling efficiency gains (SRC-10)
+    # Transplanting-date stratified stage lengths and Kc (SRC-13)
+    transplanting_profiles:
+      MAY_EARLY:  # May 6 - May 26 window (140 days)
+        stage_days: {INI: 31, DEV: 39, MID: 51, END: 19}
+        kc_single: {INI: 1.15, MID: 1.36, END: 0.86}
+      JUNE_LATE:  # June 6+ window coinciding with late-May MWRI canal adjustment (129 days)
+        stage_days: {INI: 30, DEV: 41, MID: 43, END: 15}
+        kc_single: {INI: 1.15, MID: 1.26, END: 0.76}
+    stage_days:
+      INI: 31
+      DEV: 39
+      MID: 51
+      END: 19
+    kc_single:
+      INI: 1.15
+      MID: 1.36
+      END: 0.86
+    kcb_basal:
+      INI: 1.00
+      MID: 1.25
+      END: 0.70
+    root_depth_m:
+      min: 0.15
+      max: 0.50  # Verified FAO-56 rice root depth above puddled pan (SRC-12)
+    depletion_fraction_p: 0.20
+    crop_height_max_m: 1.00
+    salinity_threshold_ec_dsm: 3.00
+    heat_wave_threshold_c:
+      INI: 37.0
+      DEV: 37.0
+      MID: 36.0  # Thermal stability required during heading/flowering (SRC-30)
+      END: 38.0
+    paddy_management:
+      target_ponded_depth_mm: 50.0
+      pre_closure_refill_depth_mm: 75.0
+      max_bund_height_mm: 120.0
+      awd_trigger_depth_mm: -40.0       # Perched water table 40 mm below surface in INI/DEV
+      flowering_min_depth_mm: 15.0      # Must keep standing water during MID stage
+      deep_percolation_mm_day: 3.0      # Heavy puddled Nile Delta alluvial clay
+      mwri_canal_rotation:
+        amala_open_days: 4              # Verified MWRI 4 days ON (SRC-11)
+        batala_closed_days: 6           # Verified MWRI 6 days OFF from late May (SRC-11)

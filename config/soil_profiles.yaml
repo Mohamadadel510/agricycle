@@ -1,0 +1,27 @@
+# Verified Soil Hydraulic Profiles (Nile Delta Clay SRC-25 & Reclaimed Desert Sandy Loam)
+soils:
+  NILE_DELTA_CLAY:
+    display_name: "Old Lands Alluvial Heavy Clay (Mansoura / Dakahlia)"
+    regime: "OLD_LANDS_CANAL"
+    theta_sat_m3m3: 0.52
+    theta_fc_m3m3: 0.38     # Locally calibrated heavy alluvial clay above generic 0.30-0.32 PTF (SRC-25)
+    theta_pwp_m3m3: 0.21    # pF 4.2 retention baseline (SRC-25)
+    bulk_density_gcm3: 1.28
+    rew_mm: 11.0            # Readily evaporable water for FAO-56 Ke calculation
+    tew_mm: 28.0            # Total evaporable water (top 0.10-0.15 m layer)
+    default_canal_rotation:
+      general_amala_days: 5
+      general_batala_days: 10  # Three-turn summer canal rotation 5d ON / 10d OFF (SRC-11)
+
+  NEW_LANDS_SANDY_LOAM:
+    display_name: "Newly Reclaimed Desert Fringe Sandy Loam (Wadi El-Natrun / New Delta)"
+    regime: "NEW_LANDS_PRESSURIZED"
+    theta_sat_m3m3: 0.41
+    theta_fc_m3m3: 0.22
+    theta_pwp_m3m3: 0.09
+    bulk_density_gcm3: 1.52
+    rew_mm: 6.0
+    tew_mm: 14.0
+    default_canal_rotation:
+      general_amala_days: 15   # Pressurized groundwater/lift manifold available daily
+      general_batala_days: 0

@@ -1,0 +1,41 @@
+# Configurable Sensor Validation, Compost-Tea Safety & Anomaly Thresholds
+sensor_bounds:
+  vwc_min_m3m3: 0.01
+  vwc_max_m3m3: 0.70
+  air_temp_min_c: -5.0
+  air_temp_max_c: 58.0
+  soil_temp_min_c: 0.0
+  soil_temp_max_c: 55.0
+  rh_min_pct: 2.0
+  rh_max_pct: 100.0
+  ec_min_dsm: 0.0
+  ec_max_dsm: 20.0          # 20,000 uS/cm upper range of RS485 EC register (SRC-29)
+  ph_min: 3.0
+  ph_max: 9.5
+  capacitive_sensor_rmse_m3m3: 0.026  # Calibrated v1.2 sensor RMSE in clay/loam (SRC-28)
+
+compost_safety:
+  tea_ph_min_safe: 6.0
+  tea_ph_max_safe: 7.5
+  max_tea_ec_dsm: 3.5
+  max_volume_fraction_of_irrigation: 0.25  # Prevent deep percolation leaching below root zone
+  base_concentrate_l_per_ha:
+    INI: 60.0
+    DEV: 100.0
+    MID: 120.0
+    END: 0.0                # No compost tea applied during late senescence/pre-harvest
+  standard_dilution_ratio: 10.0  # 10 parts water : 1 part aerated compost tea concentrate
+
+equipment_and_alerts:
+  nominal_drip_flow_lpm: 250.0
+  nominal_drip_pressure_bar: 2.20
+  nominal_flood_flow_lpm: 600.0
+  nominal_flood_pressure_bar: 1.10
+  leak_flow_Ratio_trigger: 1.20
+  leak_pressure_ratio_trigger: 0.82
+  blockage_flow_ratio_trigger: 0.75
+  blockage_pressure_ratio_trigger: 1.15
+  battledim_orifice_cd: 0.65            # Verified BattLeDIM orifice discharge coeff (SRC-24)
+  battledim_plastic_exponent_alpha: 1.38 # Verified BattLeDIM plastic pipe exponent (SRC-24)
+  post_irrigation_min_vwc_rise_m3m3: 0.025
+  clac_heat_wave_min_consecutive_days: 3 # Verified CLAC >= 3-day heat-wave rule (SRC-30)

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agricycle"
+version = "0.2.0"
+description = "Experimental Edge ML for Predictive Irrigation, Compost-Tea Dosing, and Anomaly Detection in Egypt"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.1.0",
+    "pyyaml>=6.0.1",
+    "scikit-learn>=1.4.0",
+    "matplotlib>=3.8.0",
+    "requests>=2.31.0",
+    "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

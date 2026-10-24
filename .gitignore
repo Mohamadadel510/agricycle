@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# Virtual environments
+.venv/
+*.egg-info/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# VS Code / editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data and model artifacts
+data/raw/
+data/processed/
+models/
+*.h5
+*.pkl
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.ckpt
+
+# Logs and outputs
+logs/
+*.log
+results/
+output/
+dist/
+build/
+coverage/
+htmlcov/
+.pytest_cache/
+
+# Environment files
+.env
+.env.*
