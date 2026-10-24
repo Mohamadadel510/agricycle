@@ -1,0 +1,1 @@
+"""Module A: Rule-based and ML-based predictive irrigation scheduling."""
